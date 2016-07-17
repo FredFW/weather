@@ -10,11 +10,11 @@ var lon;
 
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(function(position){
-    alert("done!");
+    // alert("done!");
     lat = position.coords.latitude;
     lon = position.coords.longitude;
-    alert(lat);
-    alert(lon);
+    // alert(lat);
+    // alert(lon);
     loaded();
   });
 }
@@ -49,7 +49,7 @@ function loaded(){
     }
   };
 
-  xhttp.open("GET","http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+  xhttp.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
   xhttp.send();
 }
 
