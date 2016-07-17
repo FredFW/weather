@@ -2,6 +2,16 @@ body{
   overflow: hidden;
 }
 
+.unitBtn{
+  position: fixed;
+  z-index: 2;
+}
+
+.unitBtn a{
+  font-size: 1.5em;
+  color: white;
+}
+
 #currentCity{
   width: 100vw;
   min-height: 100vh;
