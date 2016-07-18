@@ -1,5 +1,5 @@
-body{
-  overflow: hidden;
+html, body{
+  overflow-x: hidden;
 }
 
 .unitBtn{
@@ -9,7 +9,11 @@ body{
 
 .unitBtn a{
   font-size: 1.5em;
+  font-weight: bold;
   color: white;
+  /*background-color: grey;*/
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 #currentCity{

@@ -1,7 +1,5 @@
-// document.getElementById("currentCity").style.minHeight = document.documentElement.clientHeight;
-// alert(document.documentElement.clientHeight);
-// document.getElementById("currentCity").style.width = document.documentElement.clientWidth;
-// alert(document.documentElement.clientWidth);
+// document.getElementById("currentCity").style.minHeight = document.documentElement.clientHeight + "px";
+// document.getElementById("currentCity").style.width = document.documentElement.clientWidth + "px";
 
 var icon;
 var city;
@@ -48,9 +46,13 @@ function show(unit){
   switch(unit){
     case "F":
       document.getElementById("weather").innerHTML = "<p>" + city + ", " + country + "<br>" + Math.round(temp * 9/5 - 459.67) + " °F" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br>" + "Last updated: " + date;
+      document.getElementById("cBtn").style.backgroundColor = "";
+      document.getElementById("fBtn").style.backgroundColor = "green";
       break;
     default:
       document.getElementById("weather").innerHTML = "<p>" + city + ", " + country + "<br>" + Math.round(temp - 273.15) + " °C" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br>" + "Last updated: " + date;
+      document.getElementById("cBtn").style.backgroundColor = "green";
+      document.getElementById("fBtn").style.backgroundColor = "";
   }
 }
 
