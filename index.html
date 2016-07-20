@@ -28,6 +28,18 @@
       <a href="javascript:show('F');" id="fBtn">°F</a>
       
     </div>
+    
+    <div class="changeCity">
+      
+      <a href="javascript:popUp();">Change City</a>
+      
+    </div>
+    
+    <div class="popUpBox">
+      
+      
+      
+    </div>
       
     <div class="container-fluid">
       
@@ -40,10 +52,10 @@
           <img id="weatherIcon" class="img-responsive">
           <div id="weather" class="text-center">
             
-            <div class="input-group col-xs-offset-3 col-xs-6">
-              <input type="text" class="form-control" placeholder="Search city by name">
+            <div class="input-group col-md-offset-3 col-md-6 col-xs-12">
+              <input type="text" class="form-control" placeholder="Search city by name or zip code" id="searchBox">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Search</button>
+                <button class="btn btn-default" type="button" onclick="search()">Search</button>
               </span>
             </div>
             

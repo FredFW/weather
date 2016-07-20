@@ -15,7 +15,7 @@ if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(locate, showError);
 }
 else{
-  alert("Warning: Geolocation is not supported by this browser.");
+  alert("Geolocation is not supported by this browser. Please search current location manually");
 }
 
 function locate(position){
@@ -27,33 +27,45 @@ function locate(position){
 function showError(error) {
   switch(error.code){
     case error.PERMISSION_DENIED:
-      alert("Warning: User denied the request for Geolocation.");
+      alert("Request for geolocation is denied. Please search current location manually");
       break;
     case error.POSITION_UNAVAILABLE:
-      alert("Warning: Location information is unavailable.");
+      alert("Location information is unavailable. Please search current location manually");
       break;
     case error.TIMEOUT:
-      alert("Warning: The request to get user location timed out.");
+      alert("Request to get location timed out. Please search current location manually");
       break;
     case error.UNKNOWN_ERROR:
-      alert("Warning: An unknown error occurred.");
+      alert("Warning: An unknown error occurred. Please search current location manually");
       break;
   }
 }
 
 function show(unit){
-  document.getElementById("weatherIcon").src = icon;
-  switch(unit){
-    case "F":
-      document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp * 9/5 - 459.67) + " °F" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
-      document.getElementById("cBtn").style.backgroundColor = "";
-      document.getElementById("fBtn").style.backgroundColor = "green";
-      break;
-    default:
-      document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp - 273.15) + " °C" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
-      document.getElementById("cBtn").style.backgroundColor = "green";
-      document.getElementById("fBtn").style.backgroundColor = "";
+  if(city){
+    
+    document.getElementById("weatherIcon").src = icon;
+    
+    switch(unit){
+      case "F":
+        document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp * 9/5 - 459.67) + " °F" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
+        document.getElementById("cBtn").style.backgroundColor = "";
+        document.getElementById("fBtn").style.backgroundColor = "green";
+        break;
+      default:
+        document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp - 273.15) + " °C" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
+        document.getElementById("cBtn").style.backgroundColor = "green";
+        document.getElementById("fBtn").style.backgroundColor = "";
+    }
   }
+}
+
+function popUp(){
+  alert("done");
+}
+
+function search(){
+  loaded(document.getElementById("searchBox").value);
 }
 
 function loaded(cityName){

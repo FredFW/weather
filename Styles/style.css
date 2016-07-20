@@ -5,6 +5,8 @@ html, body{
 .unitBtn{
   position: fixed;
   z-index: 2;
+  top: 0;
+  left: 0;
 }
 
 .unitBtn a{
@@ -12,6 +14,18 @@ html, body{
   font-weight: bold;
   color: white;
   /*background-color: grey;*/
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.changeCity a{
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
   padding-left: 1em;
   padding-right: 1em;
 }
