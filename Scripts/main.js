@@ -45,18 +45,18 @@ function show(unit){
   document.getElementById("weatherIcon").src = icon;
   switch(unit){
     case "F":
-      document.getElementById("weather").innerHTML = "<p>" + city + ", " + country + "<br>" + Math.round(temp * 9/5 - 459.67) + " °F" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br>" + "Last updated: " + date;
+      document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp * 9/5 - 459.67) + " °F" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
       document.getElementById("cBtn").style.backgroundColor = "";
       document.getElementById("fBtn").style.backgroundColor = "green";
       break;
     default:
-      document.getElementById("weather").innerHTML = "<p>" + city + ", " + country + "<br>" + Math.round(temp - 273.15) + " °C" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br>" + "Last updated: " + date;
+      document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp - 273.15) + " °C" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
       document.getElementById("cBtn").style.backgroundColor = "green";
       document.getElementById("fBtn").style.backgroundColor = "";
   }
 }
 
-function loaded(){
+function loaded(cityName){
   
   var xhttp;
 
@@ -80,8 +80,14 @@ function loaded(){
       show();
     }
   };
-
-  xhttp.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
-  xhttp.send();
+  
+  if(cityName){
+    xhttp.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+    xhttp.send();
+  }
+  else{
+    xhttp.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+    xhttp.send();
+  }
 }
 
