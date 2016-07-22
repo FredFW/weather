@@ -1,6 +1,3 @@
-// document.getElementById("currentCity").style.minHeight = document.documentElement.clientHeight + "px";
-// document.getElementById("currentCity").style.width = document.documentElement.clientWidth + "px";
-
 var icon;
 var city;
 var country;
@@ -61,9 +58,11 @@ function show(unit){
 }
 
 function popUp(){
-  document.getElementById("popUpBox").style.visibility = "visible";
-  document.getElementById("unitBtn").style.visibility = "hidden";
-  document.getElementById("changeCity").style.visibility = "hidden";
+  if(city){
+    document.getElementById("popUpBox").style.visibility = "visible";
+    document.getElementById("unitBtn").style.visibility = "hidden";
+    document.getElementById("changeCity").style.visibility = "hidden";
+  }
 }
 
 function search(popUp){
@@ -72,9 +71,11 @@ function search(popUp){
     document.getElementById("unitBtn").style.visibility = "visible";
     document.getElementById("changeCity").style.visibility = "visible";
     loaded(document.getElementById("popSearchBox").value);
+    document.getElementById("popSearchBox").value = "";
   }
   else{
     loaded(document.getElementById("searchBox").value);
+    document.getElementById("searchBox").value = "";
   }
 }
 
@@ -82,6 +83,7 @@ function goBack(){
     document.getElementById("popUpBox").style.visibility = "hidden";
     document.getElementById("unitBtn").style.visibility = "visible";
     document.getElementById("changeCity").style.visibility = "visible";
+    document.getElementById("popSearchBox").value = "";
 }
 
 function loaded(cityName){
@@ -118,4 +120,5 @@ function loaded(cityName){
     xhttp.send();
   }
 }
+
 
