@@ -61,11 +61,27 @@ function show(unit){
 }
 
 function popUp(){
-  alert("done");
+  document.getElementById("popUpBox").style.visibility = "visible";
+  document.getElementById("unitBtn").style.visibility = "hidden";
+  document.getElementById("changeCity").style.visibility = "hidden";
 }
 
-function search(){
-  loaded(document.getElementById("searchBox").value);
+function search(popUp){
+  if(popUp){
+    document.getElementById("popUpBox").style.visibility = "hidden";
+    document.getElementById("unitBtn").style.visibility = "visible";
+    document.getElementById("changeCity").style.visibility = "visible";
+    loaded(document.getElementById("popSearchBox").value);
+  }
+  else{
+    loaded(document.getElementById("searchBox").value);
+  }
+}
+
+function goBack(){
+    document.getElementById("popUpBox").style.visibility = "hidden";
+    document.getElementById("unitBtn").style.visibility = "visible";
+    document.getElementById("changeCity").style.visibility = "visible";
 }
 
 function loaded(cityName){

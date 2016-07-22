@@ -2,14 +2,20 @@ html, body{
   overflow-x: hidden;
 }
 
-.unitBtn{
+#popUpBox{
+  position: fixed;
+  visibility: hidden;
+  z-index: 2;
+}
+
+#unitBtn{
   position: fixed;
   z-index: 2;
   top: 0;
   left: 0;
 }
 
-.unitBtn a{
+#unitBtn a{
   font-size: 1.5em;
   font-weight: bold;
   color: white;
@@ -18,11 +24,14 @@ html, body{
   padding-right: 1em;
 }
 
-.changeCity a{
+#changeCity{
   position: fixed;
   z-index: 2;
   top: 0;
   right: 0;
+}
+
+#changeCity a{
   font-size: 1.5em;
   font-weight: bold;
   color: white;
