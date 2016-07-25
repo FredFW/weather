@@ -55,6 +55,7 @@ html, body{
   width: 100vw;
   min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 #coverBg{
@@ -73,7 +74,7 @@ html, body{
   min-height: 100%;
   /*position: absolute;*/
   /*top: 20%;*/
-  padding-top: 5em;
+  padding-top: 10em;
   font-size: 1.5em;
   font-weight: bold;
   color: white;
