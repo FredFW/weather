@@ -20,12 +20,12 @@ function scroll(){
     interactiveScrollbars: true,
     keyBindings: true,
     click: true,
-    indicators: [{
-			el: document.getElementById('coverBgTop'),
-			resize: false,
-			ignoreBoundaries: true,
-			speedRatioY: 0.2
-		}]
+  //  indicators: [{
+		// 	el: document.getElementById('coverBgTop'),
+		// 	resize: false,
+		// 	ignoreBoundaries: true,
+		// 	speedRatioY: 0.2
+		// }]
   });
 }
 
