@@ -53,9 +53,9 @@ html, body{
 
 #currentCity{
   width: 100vw;
-  min-height: 120vh;
+  min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
-  overflow: visible;
+  position: relative;
 }
 
 #coverBg{
