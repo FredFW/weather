@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="./Styles/style.css">
   </head>
 
-  <body>
+  <body onload="scroll()">
     
     <div class="container-fluid" id="popUpBox">
       <div class="row">
         <div class="input-group col-md-offset-3 col-md-6 col-xs-12">
-          <input type="text" class="form-control" placeholder="Search city by name or zip code" id="popSearchBox">
+          <input type="text" class="form-control" placeholder="Search city by name or zip code" id="popSearchBox" onkeydown="enterDetect(event, 'popUp')">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" onclick="search('pop')"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             <button class="btn btn-default" type="button" onclick="goBack()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
@@ -47,11 +47,16 @@
       
     </div>
     
-    <div class="container-fluid">
+    <div id="coverBgTop"><div id="coverBg"></div></div>
+    
+    <!--=================Main Content Start Here=================-->
+    
+    
+    <div id="wrapper"><div id="scroller" class="container-fluid">
       
       <div class="row" id="currentCity">
 
-        <div id="coverBg"></div>
+        <!--<div id="coverBg"></div>-->
         
         <div id="cover" class="col-xs-12 col-md-4">
           
@@ -59,7 +64,7 @@
           <div id="weather" class="text-center">
             
             <div class="input-group col-md-offset-3 col-md-6 col-xs-12">
-              <input type="text" class="form-control" placeholder="Search city by name or zip code" id="searchBox">
+              <input type="text" class="form-control" placeholder="Search city by name or zip code" id="searchBox" onkeydown="enterDetect(event)">
               <span class="input-group-btn">
                 <button class="btn btn-default" type="button" onclick="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
               </span>
@@ -70,27 +75,30 @@
         </div>
         
       </div>
-      
-      <!--<div class="row" id="forecast">-->
+    
+      <div class="row" id="forecast">
         
+      googledfgdfgdfgdfgdfgsdfffsdfsdfsdfsdf
         
-        
-      <!--</div>-->
+      </div>
       
       <!--<div class="row" id="otherCity">-->
         
         
         
       <!--</div>-->
-      
-    </div>
+    
+    </div></div>
     
     <script type="text/javascript" src="./Scripts/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="./Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./Scripts/iscroll.js"></script>
+    
     <script type="text/javascript" src="./Scripts/main.js"></script>
     
     <!--<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>-->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.js"></script>-->
 
   </body>
 

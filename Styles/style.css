@@ -1,5 +1,18 @@
 html, body{
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+#wrapper{
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 #popUpBox{
@@ -19,7 +32,6 @@ html, body{
   font-size: 1.5em;
   font-weight: bold;
   color: white;
-  /*background-color: grey;*/
   padding-left: 1em;
   padding-right: 1em;
 }
@@ -42,21 +54,23 @@ html, body{
 #currentCity{
   width: 100vw;
   min-height: 100vh;
-  position: relative;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 #coverBg{
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  min-height: 100vh;
   background-image: url("cover.jpg");
   background-size:cover;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
 #cover{
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   position: absolute;
   top: 20%;
   font-size: 1.5em;
@@ -66,13 +80,13 @@ html, body{
 
 #weatherIcon{
   width: auto;
-  height: 20%;
+  min-height: 20%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-#forcast{
+#forecast{
   min-height: 50vh;
   background-color: white;
 }

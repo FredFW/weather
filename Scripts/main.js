@@ -1,3 +1,6 @@
+document.getElementById("coverBg").style.backgroundImage = "url('https://source.unsplash.com/random')";
+// document.getElementById("currentCity").style.backgroundImage = "url('https://source.unsplash.com/random')";
+
 var icon;
 var city;
 var country;
@@ -7,7 +10,27 @@ var desc;
 var date;
 var lat;
 var lon;
+var myScroll;
 
+function scroll(){
+  myScroll = new IScroll("#wrapper",{
+    bounce: false,
+    mouseWheel: true,
+    scrollbars: true,
+    interactiveScrollbars: true,
+    keyBindings: true,
+    click: true,
+    indicators: [{
+			el: document.getElementById('coverBgTop'),
+			resize: false,
+			ignoreBoundaries: true,
+			speedRatioY: 0.2
+		}]
+  });
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(locate, showError);
 }
@@ -53,6 +76,9 @@ function show(unit){
         document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp - 273.15) + " °C" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
         document.getElementById("cBtn").style.backgroundColor = "green";
         document.getElementById("fBtn").style.backgroundColor = "";
+        setTimeout(function() {
+          myScroll.refresh();
+        }, 0);
     }
   }
 }
@@ -118,6 +144,18 @@ function loaded(cityName){
   else{
     xhttp.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
     xhttp.send();
+  }
+}
+
+function enterDetect(event, opt){
+  var e = event.which || event.keyCode;
+  if (e == 13){
+    if(opt){
+      search(opt);
+    }
+    else{
+      search();
+    }
   }
 }
 
