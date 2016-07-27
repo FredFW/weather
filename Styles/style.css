@@ -1,18 +1,19 @@
-/*html, body{*/
-/*  overflow: hidden;*/
-/*}*/
-
-html, body, #wrapper{
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+html, body{
+  overflow-x: hidden;
 }
+
+/*html, body, #wrapper{*/
+/*  overflow: hidden;*/
+/*  width: 100vw;*/
+/*  min-height: 100vh;*/
+/*  position: absolute;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  top: 0;*/
+/*  right: 0;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*}*/
 
 #popUpBox{
   position: absolute;
@@ -62,14 +63,14 @@ html, body, #wrapper{
   min-height: 100vh;
   background-image: url("cover.jpg");
   background-size:cover;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
 }
 
 #overlay{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -94,11 +95,20 @@ html, body, #wrapper{
 }
 
 #forecast{
-  min-height: 50vh;
   background-color: white;
+  overflow-x: auto;
 }
 
 #otherCity{
   min-height: 50vh;
   background-color: white;
+}
+
+td{
+  font-size: 1em;
+  font-weight: bold;
+  padding: 2em;
+  margin: 2em;
+  min-width: 10em;
+  text-align: center;
 }
