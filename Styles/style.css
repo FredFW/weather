@@ -1,4 +1,4 @@
-html, body{
+html, body, wrapper{
   overflow-x: hidden;
 }
 
@@ -109,6 +109,6 @@ td{
   font-weight: bold;
   padding: 2em;
   margin: 2em;
-  min-width: 10em;
+  min-width: 12em;
   text-align: center;
 }

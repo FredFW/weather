@@ -9,8 +9,6 @@ var desc;
 var date;
 var lat;
 var lon;
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(locate, showError);
@@ -71,8 +69,8 @@ function show(unit){
 function showForecast(data){
   
   var openTag = "<table><tr>";
-  var closeTag = "<td><span class='glyphicon glyphicon-chevron-right' aria-hidden='true' style='position: fixed; left: 0;'></span></td></tr></table>";
-  var content = "<td><span class='glyphicon glyphicon-chevron-left' aria-hidden='true' style='position: fixed; right: 0;'></span></td>";
+  var closeTag = "<td><span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span></td></tr></table>";
+  var content = "<td><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span></td>";
   
   for(i=0;i<data.cnt;i++){
     
