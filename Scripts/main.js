@@ -78,13 +78,15 @@ function show(unit){
         document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp - 273.15) + " °C" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
         document.getElementById("cBtn").style.backgroundColor = "green";
         document.getElementById("fBtn").style.backgroundColor = "";
-        alert("b")
+        alert("b");
     }
   }
   
   setTimeout(function(){
-    alert("done!")
-    myScroll.refresh();
+    alert("done!");
+    myScroll.destroy();
+    myScroll = null;
+    scroll();
   }, 0);
 }
 
