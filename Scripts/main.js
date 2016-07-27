@@ -62,6 +62,7 @@ function show(unit){
   document.getElementById("cover").style.paddingTop = "3em";
   document.getElementById("cover").style.paddingBottom = "3em";
   
+  
   if(city){
     
     document.getElementById("weatherIcon").src = icon;
@@ -71,16 +72,20 @@ function show(unit){
         document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp * 9/5 - 459.67) + " °F" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
         document.getElementById("cBtn").style.backgroundColor = "";
         document.getElementById("fBtn").style.backgroundColor = "green";
+        alert("a");
         break;
       default:
         document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp - 273.15) + " °C" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
         document.getElementById("cBtn").style.backgroundColor = "green";
         document.getElementById("fBtn").style.backgroundColor = "";
-        setTimeout(function() {
-          myScroll.refresh();
-        }, 0);
+        alert("b")
     }
   }
+  
+  setTimeout(function(){
+    alert("done!")
+    myScroll.refresh();
+  }, 0);
 }
 
 function popUp(){
