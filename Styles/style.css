@@ -3,7 +3,6 @@ html, body{
 }
 
 #wrapper{
-  /*overflow: hidden;*/
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -16,13 +15,14 @@ html, body{
 }
 
 #popUpBox{
-  position: fixed;
+  position: absolute;
+  top: 0;
   visibility: hidden;
   z-index: 2;
 }
 
 #unitBtn{
-  position: fixed;
+  position: absolute;
   z-index: 2;
   top: 0;
   left: 0;
@@ -37,7 +37,7 @@ html, body{
 }
 
 #changeCity{
-  position: fixed;
+  position: absolute;
   z-index: 2;
   top: 0;
   right: 0;
@@ -54,7 +54,6 @@ html, body{
 #currentCity{
   width: 100vw;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
   position: relative;
 }
 
@@ -69,21 +68,26 @@ html, body{
   z-index: -1;
 }
 
+#overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 #cover{
-  width: 100%;
-  min-height: 100%;
-  /*position: absolute;*/
-  /*top: 20%;*/
-  padding-top: 3em;
-  padding-bottom: 3em;
+  width: 100vw;
+  min-height: 100vh;
+  position: absolute;
+  top: 45%;
   font-size: 1.5em;
   font-weight: bold;
   color: white;
 }
 
 #weatherIcon{
-  width: auto;
-  min-height: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;

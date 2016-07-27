@@ -1,5 +1,4 @@
 document.getElementById("coverBg").style.backgroundImage = "url('https://source.unsplash.com/random')";
-// document.getElementById("currentCity").style.backgroundImage = "url('https://source.unsplash.com/random')";
 
 var icon;
 var city;
@@ -19,13 +18,7 @@ function scroll(){
     scrollbars: true,
     interactiveScrollbars: true,
     keyBindings: true,
-    click: true,
-  //  indicators: [{
-		// 	el: document.getElementById('coverBgTop'),
-		// 	resize: false,
-		// 	ignoreBoundaries: true,
-		// 	speedRatioY: 0.2
-		// }]
+    click: true
   });
 }
 
@@ -62,6 +55,13 @@ function showError(error) {
 }
 
 function show(unit){
+  
+  document.getElementById("weatherIcon").style.height = "5em";
+  document.getElementById("cover").style.position = "relative";
+  document.getElementById("cover").style.top = "0";
+  document.getElementById("cover").style.paddingTop = "3em";
+  document.getElementById("cover").style.paddingBottom = "3em";
+  
   if(city){
     
     document.getElementById("weatherIcon").src = icon;
