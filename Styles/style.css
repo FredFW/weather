@@ -109,6 +109,6 @@ td{
   font-weight: bold;
   padding: 2em;
   margin: 2em;
-  min-width: 12em;
+  width: 12em;
   text-align: center;
 }
