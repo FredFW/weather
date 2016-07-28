@@ -1,14 +1,16 @@
 document.getElementById("coverBg").style.backgroundImage = "url('https://source.unsplash.com/random')";
 
-var icon;
-var city;
-var country;
-var temp;
-var humidity;
-var desc;
-var date;
-var lat;
-var lon;
+// var icon;
+// var city;
+// var country;
+// var temp;
+// var humidity;
+// var desc;
+// var date;
+// var lat;
+// var lon;
+var currentData;
+var forecastData;
     
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(locate, showError);
@@ -18,9 +20,9 @@ else{
 }
 
 function locate(position){
-  lat = position.coords.latitude;
-  lon = position.coords.longitude;
-  loaded();
+  // lat = position.coords.latitude;
+  // lon = position.coords.longitude;
+  loaded(position.coords.latitude, position.coords.longitude);
 }
 
 function showError(error) {
@@ -40,45 +42,51 @@ function showError(error) {
   }
 }
 
-function show(unit){
+function show(response, unit){
   
-  document.getElementById("weatherIcon").style.height = "5em";
-  document.getElementById("cover").style.position = "relative";
-  document.getElementById("cover").style.top = "0";
-  document.getElementById("cover").style.paddingTop = "5em";
-  document.getElementById("cover").style.paddingBottom = "3em";
-  
-  if(city){
+  if(response){
     
-    document.getElementById("weatherIcon").src = icon;
-    
+    document.getElementById("weatherIcon").style.height = "5em";
+    document.getElementById("cover").style.position = "relative";
+    document.getElementById("cover").style.top = "0";
+    document.getElementById("cover").style.paddingTop = "5em";
+    document.getElementById("cover").style.paddingBottom = "3em";
+
+    document.getElementById("weatherIcon").src = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+
     switch(unit){
       case "F":
-        document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp * 9/5 - 459.67) + " °F" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
+        document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + response.name + ", " + response.sys.country + "<br>" + Math.round(response.main.temp * 9/5 - 459.67) + " °F" + "<br>" + "Humidity: " + response.main.humidity + "%" + "<br>" + (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1) + "<br><br>" + "Last updated:<br>" + new Date(response.dt * 1000).toString();
         document.getElementById("cBtn").style.backgroundColor = "";
         document.getElementById("fBtn").style.backgroundColor = "green";
         break;
+        
       default:
-        document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + city + ", " + country + "<br>" + Math.round(temp - 273.15) + " °C" + "<br>" + "Humidity: " + humidity + "%" + "<br>" + desc + "<br><br>" + "Last updated:<br>" + date;
+        document.getElementById("weather").innerHTML = "<p>Observe at:<br>" + response.name + ", " + response.sys.country + "<br>" + Math.round(response.main.temp - 273.15) + " °C" + "<br>" + "Humidity: " + response.main.humidity + "%" + "<br>" + (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1) + "<br><br>" + "Last updated:<br>" + new Date(response.dt * 1000).toString();
         document.getElementById("cBtn").style.backgroundColor = "green";
         document.getElementById("fBtn").style.backgroundColor = "";
     }
   }
 }
 
-function showForecast(data){
+function showForecast(data, unit){
   
   var openTag = "<table><tr>";
   var closeTag = "<td><span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span></td></tr></table>";
   var content = "<td><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span></td>";
   
-  for(i=0;i<data.cnt;i++){
-    
-    content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<br>" + "<p>" + Math.round(data.list[i].main.temp - 273.5) + "°C</p>" + "<p>" + data.list[i].main.humidity + "%</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleString() + "</p></td>";
+  if(unit){
+    for(i=0;i<data.cnt;i++){
+      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<br>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].main.humidity + "%</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleString() + "</p></td>";
+    }
+  }
+  else{
+    for(i=0;i<data.cnt;i++){
+      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<br>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].main.humidity + "%</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleString() + "</p></td>";
+    }
   }
   
   document.getElementById("forecast").innerHTML = openTag + content + closeTag;
-  
 }
 
 function popUp(){
@@ -94,11 +102,11 @@ function search(popUp){
     document.getElementById("popUpBox").style.visibility = "hidden";
     document.getElementById("unitBtn").style.visibility = "visible";
     document.getElementById("changeCity").style.visibility = "visible";
-    loaded(document.getElementById("popSearchBox").value);
+    loaded(null, null, document.getElementById("popSearchBox").value);
     document.getElementById("popSearchBox").value = "";
   }
   else{
-    loaded(document.getElementById("searchBox").value);
+    loaded(null, null, document.getElementById("searchBox").value);
     document.getElementById("searchBox").value = "";
   }
 }
@@ -110,7 +118,7 @@ function goBack(){
     document.getElementById("popSearchBox").value = "";
 }
 
-function loaded(cityName){
+function loaded(lat, lon, cityName){
   
   var xhttp;
 
@@ -123,17 +131,17 @@ function loaded(cityName){
 
   xhttp.onreadystatechange = function (){
     if (xhttp.readyState == 4 && xhttp.status == 200){
-      var response = JSON.parse(xhttp.responseText);
-      icon = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
-      city = response.name;
-      country = response.sys.country;
-      temp = response.main.temp;
-      humidity = response.main.humidity;
-      desc = (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1);
+      currentData = JSON.parse(xhttp.responseText);
+      // icon = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+      // city = response.name;
+      // country = response.sys.country;
+      // temp = response.main.temp;
+      // humidity = response.main.humidity;
+      // desc = (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1);
       // date = new Date(response.dt * 1000).toLocaleString();
-      date = new Date(response.dt * 1000).toString();
-      show();
-      forecast(response.id);
+      // date = new Date(response.dt * 1000).toString();
+      show(currentData);
+      forecast(currentData.id);
     }
   };
   
@@ -159,8 +167,8 @@ function forecast(id){
 
   xhttpForecast.onreadystatechange = function (){
     if (xhttpForecast.readyState == 4 && xhttpForecast.status == 200){
-      var response = JSON.parse(xhttpForecast.responseText);
-      showForecast(response);
+      forecastData = JSON.parse(xhttpForecast.responseText);
+      showForecast(forecastData);
     }
   };
   
