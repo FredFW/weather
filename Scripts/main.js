@@ -90,7 +90,7 @@ function showForecast(data, unit){
 }
 
 function popUp(){
-  if(city){
+  if(currentData){
     document.getElementById("popUpBox").style.visibility = "visible";
     document.getElementById("unitBtn").style.visibility = "hidden";
     document.getElementById("changeCity").style.visibility = "hidden";
