@@ -11,6 +11,18 @@ document.getElementById("coverBg").style.backgroundImage = "url('https://source.
 // var lon;
 var currentData;
 var forecastData;
+var myScroll;
+
+function iScroll(){
+  myScroll = new IScroll("#wrapper",{
+    scrollbars: true,
+    interactiveScrollbars: true,
+    scrollY: false,
+    scrollX: true
+  });
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(locate, showError);
@@ -49,8 +61,8 @@ function show(response, unit){
     document.getElementById("weatherIcon").style.height = "5em";
     document.getElementById("cover").style.position = "relative";
     document.getElementById("cover").style.top = "0";
-    document.getElementById("cover").style.paddingTop = "5em";
-    document.getElementById("cover").style.paddingBottom = "3em";
+    document.getElementById("cover").style.paddingTop = "8em";
+    document.getElementById("cover").style.paddingBottom = "8em";
 
     document.getElementById("weatherIcon").src = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
 
@@ -71,22 +83,24 @@ function show(response, unit){
 
 function showForecast(data, unit){
   
-  var openTag = "<table><tr>";
+  var openTag = "<table id='forecastTable'><tr>";
   var closeTag = "<td><span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span></td></tr></table>";
   var content = "<td><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span></td>";
   
   if(unit){
     for(i=0;i<data.cnt;i++){
-      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<br>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].main.humidity + "%</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleString() + "</p></td>";
+      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleString() + "</p></td>";
     }
   }
   else{
     for(i=0;i<data.cnt;i++){
-      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<br>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].main.humidity + "%</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleString() + "</p></td>";
+      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleString() + "</p></td>";
     }
   }
   
   document.getElementById("forecast").innerHTML = openTag + content + closeTag;
+  document.getElementById("forecast").style.width = document.getElementById("forecastTable").offsetWidth + "px";
+  iScroll();
 }
 
 function popUp(){
