@@ -12,9 +12,10 @@ document.getElementById("coverBg").style.backgroundImage = "url('https://source.
 var currentData;
 var forecastData;
 var myScroll;
+var myForecastScroll;
 
-function iScroll(){
-  myScroll = new IScroll("#wrapper",{
+function forecastScroll(){
+  myForecastScroll = new IScroll("#forecastWrapper",{
     scrollbars: true,
     interactiveScrollbars: true,
     scrollY: false,
@@ -22,7 +23,19 @@ function iScroll(){
   });
 }
 
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+function iScroll(){
+  myScroll = new IScroll("#wrapper",{
+    scrollbars: true,
+    interactiveScrollbars: true,
+    scrollY: true,
+    scrollX: false,
+    mouseWheel: true,
+    keyBindings: true,
+    click: true
+  });
+}
+
+document.addEventListener("touchmove", function (e) { e.preventDefault(); }, false);
     
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(locate, showError);
@@ -100,6 +113,8 @@ function showForecast(data, unit){
   
   document.getElementById("forecast").innerHTML = openTag + content + closeTag;
   document.getElementById("forecast").style.width = document.getElementById("forecastTable").offsetWidth + "px";
+  // document.getElementById("scroller").style.height = document.getElementById("currentCity").offsetHeight + document.getElementById("forecastTable").offsetHeight + "px";
+  forecastScroll();
   iScroll();
 }
 
