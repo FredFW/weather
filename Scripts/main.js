@@ -35,7 +35,7 @@ function iScroll(){
   });
 }
 
-document.addEventListener("touchmove", function (e) { e.preventDefault(); }, false);
+// document.addEventListener("touchmove", function (e) { e.preventDefault(); }, false);
     
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(locate, showError);
@@ -102,20 +102,20 @@ function showForecast(data, unit){
   
   if(unit){
     for(i=0;i<data.cnt;i++){
-      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleString() + "</p></td>";
+      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
     }
   }
   else{
     for(i=0;i<data.cnt;i++){
-      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleString() + "</p></td>";
+      content += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
     }
   }
   
   document.getElementById("forecast").innerHTML = openTag + content + closeTag;
   document.getElementById("forecast").style.width = document.getElementById("forecastTable").offsetWidth + "px";
   // document.getElementById("scroller").style.height = document.getElementById("currentCity").offsetHeight + document.getElementById("forecastTable").offsetHeight + "px";
-  forecastScroll();
-  iScroll();
+  // forecastScroll();
+  // iScroll();
 }
 
 function popUp(){
@@ -198,6 +198,7 @@ function forecast(id){
     if (xhttpForecast.readyState == 4 && xhttpForecast.status == 200){
       forecastData = JSON.parse(xhttpForecast.responseText);
       showForecast(forecastData);
+      forecastScroll();
     }
   };
   

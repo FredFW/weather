@@ -1,5 +1,5 @@
 html, body{
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .container-fluid{
@@ -28,22 +28,22 @@ html, body{
   /*overflow-x: hidden;*/
   width: 100vw;
   background-color: white;
-  position: absolute;
-  /*position: relative;*/
-  left: 0;
-  right: 0;
-  bottom: 0;
+  /*position: absolute;*/
+  position: relative;
+  /*left: 0;*/
+  /*right: 0;*/
+  /*bottom: 0;*/
 }
 
 #forecast{
   /*overflow-x: hidden;*/
-  /*position: relative;*/
-  position: absolute;
+  position: relative;
+  /*position: absolute;*/
   background-color: white;
   /*width: 100vw;*/
-  bottom: 0;
-  left: 0;
-  right: 0;
+  /*bottom: 0;*/
+  /*left: 0;*/
+  /*right: 0;*/
 }
 
 #currentCity{
@@ -137,7 +137,8 @@ td{
   font-weight: bold;
   padding-right: 2em;
   padding-left: 2em;
-  margin-right: 2em;
-  margin-left: 2em;
+  margin-right: 1em;
+  margin-left: 1em;
   text-align: center;
+  white-space: nowrap;
 }
