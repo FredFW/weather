@@ -1,8 +1,8 @@
 document.getElementById("coverBg").style.backgroundImage = "url('https://source.unsplash.com/random')";
-document.getElementById("wrapper").style.minHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight + "px";
-document.getElementById("coverBg").style.minHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight + "px";
-document.getElementById("overlay").style.minHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight + "px";
-document.getElementById("currentCity").style.minHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight + "px";
+document.getElementById("wrapper").style.minHeight = window.innerHeight + 36 + "px" || document.documentElement.clientHeight + 36 + "px" || document.body.clientHeight + 36 + "px";
+document.getElementById("coverBg").style.minHeight = window.innerHeight + 36 + "px" || document.documentElement.clientHeight + 36 + "px" || document.body.clientHeight + 36 + "px";
+document.getElementById("overlay").style.minHeight = window.innerHeight + 36 + "px" || document.documentElement.clientHeight + 36 + "px" || document.body.clientHeight + 36 + "px";
+document.getElementById("currentCity").style.minHeight = window.innerHeight + 36 + "px" || document.documentElement.clientHeight + 36 + "px" || document.body.clientHeight + 36 + "px";
 
 // var icon;
 // var city;
