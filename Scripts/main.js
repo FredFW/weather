@@ -1,22 +1,15 @@
 document.getElementById("coverBg").style.backgroundImage = "url('https://source.unsplash.com/random')";
-document.getElementById("wrapper").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-document.getElementById("coverBg").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-document.getElementById("overlay").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-document.getElementById("currentCity").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
+// document.getElementById("wrapper").style.minHeight = window.innerHeight + 10 + "px" || document.documentElement.clientHeight + 10 + "px" || document.body.clientHeight + 10 + "px";
+// document.getElementById("coverBg").style.minHeight = window.innerHeight + 10 + "px" || document.documentElement.clientHeight + 10 + "px" || document.body.clientHeight + 10 + "px";
+// document.getElementById("overlay").style.minHeight = window.innerHeight + 10 + "px" || document.documentElement.clientHeight + 10 + "px" || document.body.clientHeight + 10 + "px";
+// document.getElementById("currentCity").style.minHeight = window.innerHeight + 10 + "px" || document.documentElement.clientHeight + 10 + "px" || document.body.clientHeight + 10 + "px";
 
-function on_resize(c,t){
-  onresize = function(){
-    clearTimeout(t);
-    t = setTimeout(c,100)};
-    return c;
-}
-
-on_resize(function() {
-  document.getElementById("wrapper").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-  document.getElementById("coverBg").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-  document.getElementById("overlay").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-  document.getElementById("currentCity").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-});
+// function on_resize(c,t){
+//   onresize = function(){
+//     clearTimeout(t);
+//     t = setTimeout(c,100)};
+//     return c;
+// }
 
 // var icon;
 // var city;
@@ -189,8 +182,14 @@ function loaded(lat, lon, cityName){
       // date = new Date(response.dt * 1000).toString();
       show(currentData);
       forecast(currentData.id);
-      document.documentElement.style.overflowY = "visible";
-      document.body.style.overflowY = "visible";
+      // on_resize(function(){
+      //   document.getElementById("wrapper").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
+      //   document.getElementById("coverBg").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
+      //   document.getElementById("overlay").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
+      //   document.getElementById("currentCity").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
+      //   document.documentElement.style.overflowY = "visible";
+      //   document.body.style.overflowY = "visible";
+      // });
     }
   };
   
