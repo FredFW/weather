@@ -1,6 +1,6 @@
+document.getElementById("coverBg").style.backgroundImage = "url('https://source.unsplash.com/random')";
 document.getElementById("coverBg").style.minHeight = window.outerHeight;
 document.getElementById("overlay").style.minHeight = window.outerHeight;
-document.getElementById("coverBg").style.backgroundImage = "url('https://source.unsplash.com/random')";
 document.getElementById("wrapper").style.minHeight = window.outerHeight;
 document.getElementById("currentCity").style.minHeight = window.outerHeight;
 
