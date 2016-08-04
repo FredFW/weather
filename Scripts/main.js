@@ -108,8 +108,8 @@ function show(response, unit){
 function showForecast(data, unit){
   
   var openTag = "<table id='forecastTable'><tr>";
-  var closeTag = "<td><span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span></td></tr></table>";
-  var content = "<td><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span></td>";
+  var closeTag = "<td><span class='glyphicon glyphicon-chevron-right' aria-hidden='true' style='opacity:0;'></span></td></tr></table>";
+  var content = "<td><span class='glyphicon glyphicon-chevron-left' aria-hidden='true' style='opacity:0;'></span></td>";
   
   if(unit){
     for(i=0;i<data.cnt;i++){
