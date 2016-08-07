@@ -1,25 +1,5 @@
 document.getElementById("coverBg").style.backgroundImage = "url('https://source.unsplash.com/random')";
-// document.getElementById("wrapper").style.minHeight = window.innerHeight + 10 + "px" || document.documentElement.clientHeight + 10 + "px" || document.body.clientHeight + 10 + "px";
-// document.getElementById("coverBg").style.minHeight = window.innerHeight + 10 + "px" || document.documentElement.clientHeight + 10 + "px" || document.body.clientHeight + 10 + "px";
-// document.getElementById("overlay").style.minHeight = window.innerHeight + 10 + "px" || document.documentElement.clientHeight + 10 + "px" || document.body.clientHeight + 10 + "px";
-// document.getElementById("currentCity").style.minHeight = window.innerHeight + 10 + "px" || document.documentElement.clientHeight + 10 + "px" || document.body.clientHeight + 10 + "px";
 
-// function on_resize(c,t){
-//   onresize = function(){
-//     clearTimeout(t);
-//     t = setTimeout(c,100)};
-//     return c;
-// }
-
-// var icon;
-// var city;
-// var country;
-// var temp;
-// var humidity;
-// var desc;
-// var date;
-// var lat;
-// var lon;
 var currentData;
 var forecastData;
 var myScroll;
@@ -33,20 +13,6 @@ function forecastScroll(){
     scrollX: true
   });
 }
-
-// function iScroll(){
-//   myScroll = new IScroll("#wrapper",{
-//     scrollbars: true,
-//     interactiveScrollbars: true,
-//     scrollY: true,
-//     scrollX: false,
-//     mouseWheel: true,
-//     keyBindings: true,
-//     click: true
-//   });
-// }
-
-// document.addEventListener("touchmove", function (e) { e.preventDefault(); }, false);
     
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(locate, showError);
@@ -56,8 +22,6 @@ else{
 }
 
 function locate(position){
-  // lat = position.coords.latitude;
-  // lon = position.coords.longitude;
   loaded(position.coords.latitude, position.coords.longitude);
 }
 
@@ -108,8 +72,8 @@ function show(response, unit){
 function showForecast(data, unit){
   
   var openTag = "<table id='forecastTable'><tr>";
-  var closeTag = "<td><span class='glyphicon glyphicon-chevron-right' aria-hidden='true' style='opacity:0;'></span></td></tr></table>";
-  var content = "<td><span class='glyphicon glyphicon-chevron-left' aria-hidden='true' style='opacity:0;'></span></td>";
+  var closeTag = "<td></td></tr></table>";
+  var content = "<td></td>";
   
   if(unit){
     for(i=0;i<data.cnt;i++){
@@ -124,9 +88,6 @@ function showForecast(data, unit){
   
   document.getElementById("forecast").innerHTML = openTag + content + closeTag;
   document.getElementById("forecast").style.width = document.getElementById("forecastTable").offsetWidth + "px";
-  // document.getElementById("scroller").style.height = document.getElementById("currentCity").offsetHeight + document.getElementById("forecastTable").offsetHeight + "px";
-  // forecastScroll();
-  // iScroll();
 }
 
 function popUp(){
@@ -172,28 +133,12 @@ function loaded(lat, lon, cityName){
   xhttp.onreadystatechange = function (){
     if (xhttp.readyState == 4 && xhttp.status == 200){
       currentData = JSON.parse(xhttp.responseText);
-      // icon = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
-      // city = response.name;
-      // country = response.sys.country;
-      // temp = response.main.temp;
-      // humidity = response.main.humidity;
-      // desc = (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1);
-      // date = new Date(response.dt * 1000).toLocaleString();
-      // date = new Date(response.dt * 1000).toString();
       show(currentData);
       forecast(currentData.id);
       document.getElementById("unitBtn").style.visibility = "visible";
       document.getElementById("changeCity").style.visibility = "visible";
       document.documentElement.style.overflowY = "visible";
       document.body.style.overflowY = "visible";
-      // on_resize(function(){
-      //   document.getElementById("wrapper").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-      //   document.getElementById("coverBg").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-      //   document.getElementById("overlay").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-      //   document.getElementById("currentCity").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
-      //   document.documentElement.style.overflowY = "visible";
-      //   document.body.style.overflowY = "visible";
-      // });
     }
   };
   

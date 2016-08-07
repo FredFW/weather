@@ -12,41 +12,23 @@ html, body{
 
 #wrapper{
   position: relative;
-  /*position: absolute;*/
   width: 100vw;
   min-height: 100vh;
-  /*top: 0;*/
-  /*right: 0;*/
-  /*bottom: 0;*/
-  /*left: 0;*/
 }
 
 #scroller{
   position: relative;
-  /*position: absolute;*/
-  /*height: 2000px;*/
 }
 
 #forecastWrapper{
-  /*overflow-x: hidden;*/
   width: 100vw;
   background-color: white;
-  /*position: absolute;*/
   position: relative;
-  /*left: 0;*/
-  /*right: 0;*/
-  /*bottom: 0;*/
 }
 
 #forecast{
-  /*overflow-x: hidden;*/
   position: relative;
-  /*position: absolute;*/
   background-color: white;
-  /*width: 100vw;*/
-  /*bottom: 0;*/
-  /*left: 0;*/
-  /*right: 0;*/
 }
 
 #currentCity{
@@ -55,7 +37,6 @@ html, body{
   position: relative;
   margin: 1px;
   padding: 1px;
-  /*position: absolute;*/
 }
 
 #popUpBox{
@@ -65,14 +46,11 @@ html, body{
   z-index: 2;
   margin-left: 1em;
   margin-right: 1em;
-  /*padding-left: 1em;*/
-  /*padding-right: 1em;*/
 }
 
 #unitBtn{
   position: absolute;
   z-index: 2;
-  /*top: 0;*/
   left: 0;
   visibility: hidden;
 }
@@ -83,14 +61,11 @@ html, body{
   color: white;
   padding-left: 1em;
   padding-right: 1em;
-  /*border-width: 1px;*/
-  /*border-style: solid;*/
 }
 
 #changeCity{
   position: absolute;
   z-index: 2;
-  /*top: 0;*/
   right: 0;
   visibility: hidden;
 }
@@ -101,8 +76,6 @@ html, body{
   color: white;
   padding-left: 1em;
   padding-right: 1em;
-  /*border-width: 1px;*/
-  /*border-style: solid;*/
 }
 
 #coverBg{
