@@ -1,6 +1,6 @@
 html, body{
   overflow-x: hidden;
-  /*overflow-y: hidden;*/
+  overflow-y: hidden;
   /*font-family: 'Raleway', sans-serif;*/
   font-family: 'Open Sans', sans-serif;
 }
@@ -74,6 +74,7 @@ html, body{
   z-index: 2;
   /*top: 0;*/
   left: 0;
+  visibility: hidden;
 }
 
 #unitBtn a{
@@ -91,6 +92,7 @@ html, body{
   z-index: 2;
   /*top: 0;*/
   right: 0;
+  visibility: hidden;
 }
 
 #changeCity a{
@@ -154,4 +156,13 @@ td{
   margin-left: 1em;
   text-align: center;
   white-space: nowrap;
+}
+
+#footer{
+  width: 100vw;
+  color: white;
+  text-align: center;
+  font-size: 1em;
+  position: absolute;
+  bottom: 0;
 }

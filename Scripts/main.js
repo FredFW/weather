@@ -182,6 +182,10 @@ function loaded(lat, lon, cityName){
       // date = new Date(response.dt * 1000).toString();
       show(currentData);
       forecast(currentData.id);
+      document.getElementById("unitBtn").style.visibility = "visible";
+      document.getElementById("changeCity").style.visibility = "visible";
+      document.documentElement.style.overflowY = "visible";
+      document.body.style.overflowY = "visible";
       // on_resize(function(){
       //   document.getElementById("wrapper").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
       //   document.getElementById("coverBg").style.minHeight = window.innerHeight + 100 + "px" || document.documentElement.clientHeight + 100 + "px" || document.body.clientHeight + 100 + "px";
