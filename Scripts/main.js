@@ -5,11 +5,11 @@ setInterval(function(){
 
 function scrollEffect(){
   if (window.pageYOffset !== undefined) {// All browsers, except IE9 and earlier
-    if(window.pageYOffset + window.innerHeight - 10 > document.getElementById("currentCity").offsetHeight){
+    if(window.pageYOffset + window.innerHeight - 30 > document.getElementById("currentCity").offsetHeight){
       document.getElementById("scrollDown").style.visibility = "hidden";
     }
   } else { // IE9 and earlier
-    if(document.documentElement.scrollTop + window.innerHeight - 10 > document.getElementById("currentCity").offsetHeight){
+    if(document.documentElement.scrollTop + window.innerHeight - 30 > document.getElementById("currentCity").offsetHeight){
       document.getElementById("scrollDown").style.visibility = "hidden";
     }
   }
