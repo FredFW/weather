@@ -4,6 +4,10 @@ html, body{
   /*font-family: 'Raleway', sans-serif;*/
   font-family: 'Open Sans', sans-serif;
 }
+a:hover{
+  color: white;
+}
+
 
 .container-fluid{
   margin: 0;
@@ -40,7 +44,7 @@ html, body{
 }
 
 #popUpBox{
-  position: absolute;
+  position: fixed;
   top: 0;
   visibility: hidden;
   z-index: 2;
@@ -48,26 +52,32 @@ html, body{
   margin-right: 1em;
 }
 
-#unitBtn{
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  visibility: hidden;
+/*#unitBtn{*/
+/*  position: absolute;*/
+/*  z-index: 2;*/
+/*  left: 0;*/
+/*  visibility: hidden;*/
+/*}*/
+
+/*#unitBtn a{*/
+/*  font-size: 1.5em;*/
+/*  font-weight: bold;*/
+/*  color: white;*/
+/*  padding-left: 1em;*/
+/*  padding-right: 1em;*/
+/*}*/
+
+a#changeCity{
+  /*position: absolute;*/
+  /*z-index: 2;*/
+  /*right: 0;*/
+  /*visibility: hidden;*/
+  text-decoration: underline;
+  color: lightgrey;
 }
 
-#unitBtn a{
-  font-size: 1.5em;
-  font-weight: bold;
-  color: white;
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
-#changeCity{
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  visibility: hidden;
+a#changeCity:hover{
+  color: lightgrey;
 }
 
 #changeCity a{
@@ -97,16 +107,21 @@ html, body{
   min-height: 100vh;
   /*background-color: rgba(0, 0, 0, 0.2);*/
   background-color: black;
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 #cover{
   width: 100vw;
   position: absolute;
   top: 40%;
-  font-size: 1.5em;
+  /*font-size: 1.5em;*/
+  font-size: 1em;
   font-weight: bold;
-  color: white;
+  color: lightgrey;
+}
+
+#cover img{
+  font-size: 1.5em;
 }
 
 #weatherIcon{
@@ -138,4 +153,36 @@ td{
   font-size: 1em;
   position: absolute;
   bottom: 0;
+  text-shadow: 5px 5px 10px black;
+}
+
+#footer a{
+  color: white;
+  font-size: 1.5em;
+}
+
+#scrollDown{
+  color: white;
+  font-size: 1em;
+  position: fixed;
+  bottom: 35%;
+  right: 2px;
+  text-align: center;
+  text-shadow: 5px 5px 10px black;
+  visibility: hidden;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  opacity: 1;
+}
+
+.shadow{
+  text-shadow: 5px 5px 10px black;
+  color: white;
+  font-size: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+a.shadow{
+  font-size: 1.5em;
 }
