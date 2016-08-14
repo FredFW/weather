@@ -4,10 +4,10 @@ html, body{
   /*font-family: 'Raleway', sans-serif;*/
   font-family: 'Open Sans', sans-serif;
 }
+
 a:hover{
   color: white;
 }
-
 
 .container-fluid{
   margin: 0;
@@ -67,26 +67,26 @@ a:hover{
 /*  padding-right: 1em;*/
 /*}*/
 
-a#changeCity{
-  /*position: absolute;*/
-  /*z-index: 2;*/
-  /*right: 0;*/
-  /*visibility: hidden;*/
-  text-decoration: underline;
-  color: lightgrey;
-}
+/*a#changeCity{*/
+/*  position: absolute;*/
+/*  z-index: 2;*/
+/*  right: 0;*/
+/*  visibility: hidden;*/
+/*  text-decoration: underline;*/
+/*  color: lightgrey;*/
+/*}*/
 
-a#changeCity:hover{
-  color: lightgrey;
-}
+/*a#changeCity:hover{*/
+/*  color: lightgrey;*/
+/*}*/
 
-#changeCity a{
-  font-size: 1.5em;
-  font-weight: bold;
-  color: white;
-  padding-left: 1em;
-  padding-right: 1em;
-}
+/*#changeCity a{*/
+/*  font-size: 1.5em;*/
+/*  font-weight: bold;*/
+/*  color: white;*/
+/*  padding-left: 1em;*/
+/*  padding-right: 1em;*/
+/*}*/
 
 #coverBg{
   width: 100vw;
@@ -117,11 +117,12 @@ a#changeCity:hover{
   /*font-size: 1.5em;*/
   font-size: 1em;
   font-weight: bold;
-  color: lightgrey;
+  color: white;
 }
 
 #cover img{
   font-size: 1.5em;
+  text-shadow: 5px 5px 10px black;
 }
 
 #weatherIcon{
@@ -130,10 +131,10 @@ a#changeCity:hover{
   margin-right: auto;
 }
 
-#otherCity{
-  min-height: 50vh;
-  background-color: white;
-}
+/*#otherCity{*/
+/*  min-height: 50vh;*/
+/*  background-color: white;*/
+/*}*/
 
 td{
   font-size: 1em;
@@ -151,14 +152,15 @@ td{
   color: white;
   text-align: center;
   font-size: 1em;
-  position: absolute;
-  bottom: 0;
-  text-shadow: 5px 5px 10px black;
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  /*text-shadow: 5px 5px 10px black;*/
 }
 
 #footer a{
-  color: white;
-  font-size: 1.5em;
+  color: lightgrey;
+  font-size: 1em;
+  opacity: 0.8;
 }
 
 #scrollDown{
@@ -173,16 +175,31 @@ td{
   -webkit-transition: all 1s;
   transition: all 1s;
   opacity: 1;
+  z-index: 2;
+}
+
+#scrollDown a{
+  color: white;
 }
 
 .shadow{
   text-shadow: 5px 5px 10px black;
   color: white;
-  font-size: 2em;
-  padding-left: 1em;
-  padding-right: 1em;
+  font-size: 1.5em;
+}
+
+#temp{
+  text-shadow: 5px 5px 10px black;
+  color: white;
+  /*font-size: 8em;*/
+  font-size: 6em;
 }
 
 a.shadow{
   font-size: 1.5em;
+  color: lightgrey;
+}
+
+@media screen and (min-width: 640px) {
+    #cover{font-size: 1.5em;}
 }
