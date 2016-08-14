@@ -5,14 +5,23 @@ setInterval(function(){
 
 function scrollEffect(){
   if (window.pageYOffset !== undefined) {// All browsers, except IE9 and earlier
-    if(window.pageYOffset + window.innerHeight - 30 > document.getElementById("currentCity").offsetHeight){
+    if(window.pageYOffset + window.innerHeight - 100 > document.getElementById("currentCity").offsetHeight){
       document.getElementById("scrollDown").style.visibility = "hidden";
     }
   } else { // IE9 and earlier
-    if(document.documentElement.scrollTop + window.innerHeight - 30 > document.getElementById("currentCity").offsetHeight){
+    if(document.documentElement.scrollTop + window.innerHeight - 100 > document.getElementById("currentCity").offsetHeight){
       document.getElementById("scrollDown").style.visibility = "hidden";
     }
   }
+}
+
+function scrollToBottom(){
+  var animation = setInterval(function(){
+    if (document.body.scrollTop >= document.body.offsetHeight - document.documentElement.clientHeight){
+      clearInterval(animation);
+    }
+    document.body.scrollTop += 15;
+  }, 10);
 }
 
 var currentData;
@@ -63,24 +72,32 @@ function show(response, unit){
     document.getElementById("weatherIcon").style.height = "5em";
     document.getElementById("cover").style.position = "relative";
     document.getElementById("cover").style.top = "0";
-    document.getElementById("cover").style.paddingTop = "8em";
+    document.getElementById("cover").style.paddingTop = "5em";
     document.getElementById("cover").style.paddingBottom = "8em";
 
     document.getElementById("weatherIcon").src = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
 
     switch(unit){
       case 1:
-        document.getElementById("weather").innerHTML = "<p>Observe at:</p><p class='shadow'>" + response.name + ", " + response.sys.country + "</p><a href='javascript:popUp();' id='changeCity'><i>Click to Change City</i></a><br><br><p class='shadow'>" + Math.round(response.main.temp * 9/5 - 459.67)+ "°F</p>" + "<p><a href='javascript:show(currentData);showForecast(forecastData);' id='cBtn' class='shadow'>°C</a>"+ " | " + "<a href='javascript:show(currentData,1);showForecast(forecastData,1);' id='fBtn' class='shadow'>°F</a></p>" + "<p>Humidity:</p><p class='shadow'>" + response.main.humidity + "%</p><p class='shadow'>" + (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1) + "</p><br><p>Last updated:</p><p class='shadow'>" + new Date(response.dt * 1000).toString() + "</p>";
+        document.getElementById("weather").innerHTML = "<p>Observe At:</p><a href='javascript:popUp();' id='changeCity' class='shadow'>" + response.name + ", " + response.sys.country + " <span class='glyphicon glyphicon-search' aria-hidden='true' style='font-size:0.5em'></span></a><p id='temp'>" + Math.round(response.main.temp * 9/5 - 459.67)+ "°F</p>" + "<p class='shadow'>Humidity: " + response.main.humidity + "%</p><p class='shadow'>" + (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1) + "</p><a href='javascript:show(currentData);showForecast(forecastData);' id='cBtn' class='shadow'>°C</a>" + "  |  " + "<a href='javascript:show(currentData,1);showForecast(forecastData,1);' id='fBtn' class='shadow'>°F</a>";
         
-        document.getElementById("cBtn").style.backgroundColor = "";
-        document.getElementById("fBtn").style.backgroundColor = "green";
+        document.getElementById("footer").innerHTML = "<p>Last updated:</p><p>" + new Date(response.dt * 1000).toLocaleTimeString() + "</p><p>Powered by <a href='https://unsplash.com/' target='_blank'>Unsplash</a> & <a href='http://openweathermap.org/' target='_blank'>OpenWeatherMap</a></p>";
+        
+        document.getElementById("cBtn").style.opacity = "0.7";
+        document.getElementById("cBtn").style.color = "lightgrey";
+        document.getElementById("fBtn").style.opacity = "1";
+        document.getElementById("fBtn").style.color = "white";
         break;
         
       default:
-        document.getElementById("weather").innerHTML = "<p>Observe at:</p><p class='shadow'>" + response.name + ", " + response.sys.country + "</p><a href='javascript:popUp();' id='changeCity'><i>Click to Change City</i></a><br><br><p class='shadow'>" + Math.round(response.main.temp - 273.15)+ "°C</p>" + "<p><a href='javascript:show(currentData);showForecast(forecastData);' id='cBtn' class='shadow'>°C</a>"+ " | " + "<a href='javascript:show(currentData,1);showForecast(forecastData,1);' id='fBtn' class='shadow'>°F</a></p>" + "<p>Humidity:</p><p class='shadow'>" + response.main.humidity + "%</p><p class='shadow'>" + (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1) + "</p><br><p>Last updated:</p><p class='shadow'>" + new Date(response.dt * 1000).toString() + "</p>";
+        document.getElementById("weather").innerHTML = "<p>Observe At:</p><a href='javascript:popUp();' id='changeCity' class='shadow'>" + response.name + ", " + response.sys.country + " <span class='glyphicon glyphicon-search' aria-hidden='true' style='font-size:0.5em'></span></a><p id='temp'>" + Math.round(response.main.temp - 273.15)+ "°C</p>" + "<p class='shadow'>Humidity: " + response.main.humidity + "%</p><p class='shadow'>" + (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1) + "</p><a href='javascript:show(currentData);showForecast(forecastData);' id='cBtn' class='shadow'>°C</a>" + "  |  " + "<a href='javascript:show(currentData,1);showForecast(forecastData,1);' id='fBtn' class='shadow'>°F</a>";
+        
+        document.getElementById("footer").innerHTML = "<p>Last updated:</p><p>" + new Date(response.dt * 1000).toLocaleTimeString() + "</p><p>Powered by <a href='https://unsplash.com/' target='_blank'>Unsplash</a> & <a href='http://openweathermap.org/' target='_blank'>OpenWeatherMap</a></p>";
 
-        document.getElementById("cBtn").style.backgroundColor = "green";
-        document.getElementById("fBtn").style.backgroundColor = "";
+        document.getElementById("cBtn").style.opacity = "1";
+        document.getElementById("cBtn").style.color = "white";
+        document.getElementById("fBtn").style.opacity = "0.7";
+        document.getElementById("fBtn").style.color = "lightgrey";
     }
   }
 }
