@@ -191,8 +191,9 @@ td{
 #temp{
   text-shadow: 5px 5px 10px black;
   color: white;
-  /*font-size: 8em;*/
-  font-size: 6em;
+  font-size: 8em;
+  /*font-size: 6em;*/
+  font-family: 'Roboto', sans-serif;
 }
 
 a.shadow{
