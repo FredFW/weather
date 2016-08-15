@@ -2,9 +2,9 @@ html, body{
   overflow-x: hidden;
   overflow-y: hidden;
   /*font-family: 'Raleway', sans-serif;*/
-  /*font-family: 'Open Sans', sans-serif;*/
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
+  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Roboto', sans-serif;*/
+  font-weight: 600;
 }
 
 a:hover{
@@ -195,8 +195,8 @@ td{
   color: white;
   /*font-size: 8em;*/
   font-size: 6em;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 a.shadow{
