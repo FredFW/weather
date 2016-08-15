@@ -4,7 +4,7 @@ html, body{
   /*font-family: 'Raleway', sans-serif;*/
   /*font-family: 'Open Sans', sans-serif;*/
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 a:hover{
@@ -196,7 +196,7 @@ td{
   /*font-size: 8em;*/
   font-size: 6em;
   font-family: 'Metrophobic', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 a.shadow{
