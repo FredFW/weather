@@ -75,7 +75,7 @@ function show(response, unit){
     document.getElementById("cover").style.paddingTop = "5em";
     document.getElementById("cover").style.paddingBottom = "8em";
 
-    document.getElementById("weatherIcon").src = "https://crossorigin.me/http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+    document.getElementById("weatherIcon").src = "https://cors-everywhere.herokuapp.com/http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
 
     switch(unit){
       case 1:
@@ -110,12 +110,12 @@ function showForecast(data, unit){
   
   if(unit){
     for(i=0;i<data.cnt;i++){
-      content += "<td><img src='https://crossorigin.me/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
+      content += "<td><img src='https://cors-everywhere.herokuapp.com/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
     }
   }
   else{
     for(i=0;i<data.cnt;i++){
-      content += "<td><img src='https://crossorigin.me/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
+      content += "<td><img src='https://cors-everywhere.herokuapp.com/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
     }
   }
   
@@ -177,11 +177,11 @@ function loaded(lat, lon, cityName){
   };
   
   if(cityName){
-    xhttp.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+    xhttp.open("GET","https://cors-everywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=9a879261281075d4881d5b80f7037d5d",true);
     xhttp.send();
   }
   else{
-    xhttp.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+    xhttp.open("GET","https://cors-everywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
     xhttp.send();
   }
 }
@@ -204,7 +204,7 @@ function forecast(id){
     }
   };
   
-  xhttpForecast.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast?id=" + id + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+  xhttpForecast.open("GET","https://cors-everywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?id=" + id + "&appid=9a879261281075d4881d5b80f7037d5d",true);
   xhttpForecast.send();
 }
 
