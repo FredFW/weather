@@ -75,8 +75,9 @@ function show(response, unit){
     document.getElementById("cover").style.paddingTop = "5em";
     document.getElementById("cover").style.paddingBottom = "8em";
 
-    document.getElementById("weatherIcon").src = "https://cors.now.sh/http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
-
+//     document.getElementById("weatherIcon").src = "https://cors.now.sh/http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+    document.getElementById("weatherIcon").src = "https://crossorigin.me/http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+    
     switch(unit){
       case 1:
         document.getElementById("weather").innerHTML = "<p>Observe At:</p><a href='javascript:popUp();' id='changeCity' class='shadow'>" + response.name + ", " + response.sys.country + " <span class='glyphicon glyphicon-search' aria-hidden='true' style='font-size:0.5em'></span></a><p id='temp'>" + Math.round(response.main.temp * 9/5 - 459.67)+ "°F</p>" + "<p class='shadow'>Humidity: " + response.main.humidity + "%</p><p class='shadow'>" + (response.weather[0].description)[0].toUpperCase() + (response.weather[0].description).slice(1) + "</p><a href='javascript:show(currentData);showForecast(forecastData);' id='cBtn' class='shadow'>°C</a>" + "  |  " + "<a href='javascript:show(currentData,1);showForecast(forecastData,1);' id='fBtn' class='shadow'>°F</a>";
@@ -110,12 +111,14 @@ function showForecast(data, unit){
   
   if(unit){
     for(i=0;i<data.cnt;i++){
-      content += "<td><img src='https://cors.now.sh/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
+//       content += "<td><img src='https://cors.now.sh/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
+       content += "<td><img src='https://crossorigin.me/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp * 9/5 - 459.67) + "°F</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
     }
   }
   else{
     for(i=0;i<data.cnt;i++){
-      content += "<td><img src='https://cors.now.sh/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
+//       content += "<td><img src='https://cors.now.sh/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
+      content += "<td><img src='https://crossorigin.me/http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'>" + "<p>" + Math.round(data.list[i].main.temp - 273.15) + "°C</p>" + "<p>" + data.list[i].weather[0].main + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleTimeString() + "</p>" + "<p>" + new Date(data.list[i].dt * 1000).toLocaleDateString() + "</p></td>";
     }
   }
   
@@ -214,7 +217,8 @@ function forecast(id){
     }
   };
   
-  xhttpForecast.open("GET","https://cors.now.sh/http://api.openweathermap.org/data/2.5/forecast?id=" + id + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+//   xhttpForecast.open("GET","https://cors.now.sh/http://api.openweathermap.org/data/2.5/forecast?id=" + id + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+  xhttpForecast.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast?id=" + id + "&appid=9a879261281075d4881d5b80f7037d5d",true);
   xhttpForecast.send();
 }
 
