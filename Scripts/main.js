@@ -176,14 +176,24 @@ function loaded(lat, lon, cityName){
     }
   };
   
-  if(cityName){
-    xhttp.open("GET","https://cors.now.sh/http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+//   if(cityName){
+//     xhttp.open("GET","https://cors.now.sh/http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+//     xhttp.send();
+//   }
+//   else{
+//     xhttp.open("GET","https://cors.now.sh/http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+//     xhttp.send();
+//   }
+  
+    if(cityName){
+    xhttp.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=9a879261281075d4881d5b80f7037d5d",true);
     xhttp.send();
   }
   else{
-    xhttp.open("GET","https://cors.now.sh/http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
+    xhttp.open("GET","https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=9a879261281075d4881d5b80f7037d5d",true);
     xhttp.send();
   }
+  
 }
 
 function forecast(id){
