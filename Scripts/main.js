@@ -66,6 +66,8 @@ function showError(error) {
 
 function show(response, unit){
 
+    currentData = response;
+
     if(response){
 
         document.getElementById("weatherIcon").style.height = "5em";
@@ -104,7 +106,9 @@ function show(response, unit){
 }
 
 function showForecast(data, unit){
-  
+ 
+    forecastData = data;
+
     var openTag = "<table id='forecastTable'><tr>";
     var closeTag = "<td></td></tr></table>";
     var content = "<td></td>";
@@ -160,7 +164,8 @@ function loaded(lat, lon, cityName){
     var currentPadding = document.createElement("script");
     
     if(cityName){
-        currentPadding.src = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&callback=show&appid=9a879261281075d4881d5b80f7037d5d";
+        //currentPadding.src = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&callback=show&appid=9a879261281075d4881d5b80f7037d5d";
+        currentPadding.src = "../sampleCurrent.js";
         document.body.appendChild(currentPadding);
     } else {
         currentPadding.src = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&callback=show&appid=9a879261281075d4881d5b80f7037d5d";
@@ -202,8 +207,8 @@ function forecast(id){
 
     var forecastPapping = document.createElement("script");
 
-    forecastPapping.src = "http://api.openweathermap.org/data/2.5/forecast?id=" + id + "&callback=showForecast&appid=9a879261281075d4881d5b80f7037d5d";
-
+    //forecastPapping.src = "http://api.openweathermap.org/data/2.5/forecast?id=" + id + "&callback=showForecast&appid=9a879261281075d4881d5b80f7037d5d";
+    forecastPapping.src = "../sampleForecast.js";
     document.body.appendChild(forecastPapping);
 
     forecastScroll();
