@@ -26,16 +26,16 @@ function scrollToBottom(){
 
 var currentData;
 var forecastData;
-var myForecastScroll;
+//var myForecastScroll;
 
-function forecastScroll(){
-    myForecastScroll = new IScroll("#forecastWrapper",{
-        scrollbars: true,
-        interactiveScrollbars: true,
-        scrollY: false,
-        scrollX: true
-    });
-}
+//function forecastScroll(){
+//    myForecastScroll = new IScroll("#forecastWrapper",{
+//        scrollbars: true,
+//        interactiveScrollbars: true,
+//        scrollY: false,
+//        scrollX: true
+//    });
+//}
     
 if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(locate, showError);
@@ -110,8 +110,8 @@ function showForecast(data, unit){
     forecastData = data;
 
     var openTag = "<table id='forecastTable'><tr>";
-    var closeTag = "<td></td></tr></table>";
-    var content = "<td></td>";
+    var closeTag = "<td><span class='glyphicon glyphicon-menu-right' style='opacity:0.5' aria-hidden='true'></span></td></tr></table>";
+    var content = "<td><span class='glyphicon glyphicon-menu-left' style='opacity:0.5' aria-hidden='true'></span></td>";
   
     if(unit){
         for(i=0;i<data.cnt;i++){
@@ -210,8 +210,6 @@ function forecast(id){
     //forecastPapping.src = "http://api.openweathermap.org/data/2.5/forecast?id=" + id + "&callback=showForecast&appid=9a879261281075d4881d5b80f7037d5d";
     forecastPapping.src = "../sampleForecast.js";
     document.body.appendChild(forecastPapping);
-
-    forecastScroll();
 
 //    var xhttpForecast;
 //
