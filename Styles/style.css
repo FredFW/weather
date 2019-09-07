@@ -1,58 +1,59 @@
 html, body{
-  overflow-x: hidden;
-  overflow-y: hidden;
-  /*font-family: 'Raleway', sans-serif;*/
-  font-family: 'Open Sans', sans-serif;
-  /*font-family: 'Roboto', sans-serif;*/
-  font-weight: 600;
-  /*opacity: 0.95;*/
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /*font-family: 'Raleway', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-weight: 600;
+    /*opacity: 0.95;*/
 }
 
 a:hover{
-  color: white;
+    color: white;
 }
 
 .container-fluid{
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 #wrapper{
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
 }
 
 #scroller{
-  position: relative;
+    position: relative;
 }
 
 #forecastWrapper{
-  width: 100vw;
-  background-color: white;
-  position: relative;
+    width: 100vw;
+    background-color: white;
+    position: relative;
+    overflow-x: auto;
 }
 
 #forecast{
-  position: relative;
-  background-color: white;
+    position: relative;
+    background-color: white;
 }
 
 #currentCity{
-  width: 100vw;
-  min-height: 100vh;
-  position: relative;
-  margin: 1px;
-  padding: 1px;
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    margin: 1px;
+    padding: 1px;
 }
 
 #popUpBox{
-  position: fixed;
-  top: 0;
-  visibility: hidden;
-  z-index: 2;
-  margin-left: 1em;
-  margin-right: 1em;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    z-index: 2;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 /*#unitBtn{*/
@@ -92,46 +93,46 @@ a:hover{
 /*}*/
 
 #coverBg{
-  width: 100vw;
-  min-height: 100vh;
-  background-image: url("cover.jpg");
-  background-size:cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url("cover.jpg");
+    background-size:cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 #overlay{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  min-height: 100vh;
-  /*background-color: rgba(0, 0, 0, 0.2);*/
-  background-color: black;
-  opacity: 0.3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    background-color: black;
+    opacity: 0.3;
 }
 
 #cover{
-  width: 100vw;
-  position: absolute;
-  top: 40%;
-  /*font-size: 1.5em;*/
-  font-size: 1em;
-  /*font-weight: bold;*/
-  color: white;
+    width: 100vw;
+    position: absolute;
+    top: 40%;
+    /*font-size: 1.5em;*/
+    font-size: 1em;
+    /*font-weight: bold;*/
+    color: white;
 }
 
 #cover img{
-  font-size: 1.5em;
-  text-shadow: 5px 5px 10px black;
+    font-size: 1.5em;
+    text-shadow: 5px 5px 10px black;
 }
 
 #weatherIcon{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*#otherCity{*/
@@ -140,70 +141,70 @@ a:hover{
 /*}*/
 
 td{
-  font-size: 1em;
-  font-weight: 700;
-  padding-right: 2em;
-  padding-left: 2em;
-  margin-right: 1em;
-  margin-left: 1em;
-  text-align: center;
-  white-space: nowrap;
+    font-size: 1em;
+    font-weight: 700;
+    padding-right: 2em;
+    padding-left: 2em;
+    margin-right: 1em;
+    margin-left: 1em;
+    text-align: center;
+    white-space: nowrap;
 }
 
 #footer{
-  width: 100vw;
-  color: white;
-  text-align: center;
-  font-size: 1em;
-  /*position: absolute;*/
-  /*bottom: 0;*/
-  /*text-shadow: 5px 5px 10px black;*/
+    width: 100vw;
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*text-shadow: 5px 5px 10px black;*/
 }
 
 #footer a{
-  color: lightgrey;
-  font-size: 1em;
-  opacity: 0.8;
+    color: lightgrey;
+    font-size: 1em;
+    opacity: 0.8;
 }
 
 #scrollDown{
-  color: white;
-  font-size: 1em;
-  position: fixed;
-  bottom: 35%;
-  right: 2px;
-  text-align: center;
-  text-shadow: 5px 5px 10px black;
-  visibility: hidden;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  opacity: 1;
-  z-index: 2;
+    color: white;
+    font-size: 1em;
+    position: fixed;
+    bottom: 35%;
+    right: 2px;
+    text-align: center;
+    text-shadow: 5px 5px 10px black;
+    visibility: hidden;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    opacity: 1;
+    z-index: 2;
 }
 
 #scrollDown a{
-  color: white;
+    color: white;
 }
 
 .shadow{
-  /*text-shadow: 5px 5px 10px black;*/
-  color: white;
-  font-size: 1.5em;
+    /*text-shadow: 5px 5px 10px black;*/
+    color: white;
+    font-size: 1.5em;
 }
 
 #temp{
-  /*text-shadow: 5px 5px 10px black;*/
-  color: white;
-  /*font-size: 8em;*/
-  font-size: 6em;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+    /*text-shadow: 5px 5px 10px black;*/
+    color: white;
+    /*font-size: 8em;*/
+    font-size: 6em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 a.shadow{
-  font-size: 1.5em;
-  color: lightgrey;
-  opacity: 0.8;
+    font-size: 1.5em;
+    color: lightgrey;
+    opacity: 0.8;
 }
 
 @media screen and (min-width: 640px) {
